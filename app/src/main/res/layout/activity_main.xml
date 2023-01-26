@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/skybg"
+    android:gravity="center"
+    android:orientation="vertical">
+    <!-- bingo online-->
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/bingo_online_white" />
+
+    <EditText
+        android:id="@+id/playerNameEt"
+        android:layout_width="250dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/round_white"
+        android:hint="Inserisci il tuo nome"
+        android:paddingStart="40dp"
+        android:paddingEnd="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#909090" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/startGameBtn"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/white_round_ball_back"
+        android:text="Start"
+        android:textColor="@color/dark_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:backgroundTint="#ff7514"/>
+</LinearLayout>
