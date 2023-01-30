@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "484366916329",
+    "firebase_url": "https://tombolaonline0001-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "tombolaonline0001",
+    "storage_bucket": "tombolaonline0001.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484366916329:android:dcf76b2c20ed4db4e9ae78",
+        "android_client_info": {
+          "package_name": "com.example.tombola"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484366916329-n1b1ipjn6pt9vpnhlc3nf9lmr8ojb22l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tombola",
+            "certificate_hash": "76b01611d4d41d39387931d2e1868dfa84675db3"
+          }
+        },
+        {
+          "client_id": "484366916329-rgov8pl4hs0d48ogd9kl1gs54cgoc3s0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9oCMFXXzJvT0mW_P6G2Wotwq18tVVYF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "484366916329-rgov8pl4hs0d48ogd9kl1gs54cgoc3s0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

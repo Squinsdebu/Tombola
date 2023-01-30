@@ -1,5 +1,5 @@
 package com.example.tombola;
-
+/*
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,15 +12,23 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-
+*/
 public class MainActivity extends AppCompatActivity {
+/*
+Alias: AndroidDebugKey
+MD5: B7:EF:B1:EE:AC:56:7C:1E:6D:79:7B:84:64:77:A9:13
+SHA1: 76:B0:16:11:D4:D4:1D:39:38:79:31:D2:E1:86:8D:FA:84:67:5D:B3
+SHA-256: A7:8D:2E:CF:D7:74:AC:BC:39:F4:93:14:E0:57:8B:2F:2D:28:7D:1A:F4:57:8A:C2:67:F1:C1:F9:C6:7D:EC:69
+Valid until: mercoled├¼ 8 gennaio 2053
+
+ */
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-}
 
         import androidx.annotation.NonNull;
         import androidx.appcompat.app.AppCompatActivity;
