@@ -53,7 +53,7 @@ Valid until: mercoled├¼ 8 gennaio 2053
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_prima_pagina);
 
         //PROVA POKE
         editText = findViewById(R.id.NomeGiocatoreEditText);
@@ -118,7 +118,7 @@ Valid until: mercoled├¼ 8 gennaio 2053
     }
 
 
-
+/*
 public class MainActivity extends AppCompatActivity {
     private LinearLayout player1Layout, player2Layout;
     private ImageView image1,image2,image3,image4,image5,image6,image7,image8,image9;
@@ -620,3 +620,5 @@ public class MainActivity extends AppCompatActivity {
         return isPlayerWon;
     }
 }
+
+ */
