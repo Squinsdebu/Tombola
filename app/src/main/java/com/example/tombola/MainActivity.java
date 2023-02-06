@@ -1,5 +1,13 @@
 package com.example.tombola;
-/*
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.browse.MediaBrowser;
+import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,10 +17,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
-*/
 public class MainActivity extends AppCompatActivity {
 /*
 Alias: AndroidDebugKey
@@ -22,33 +37,87 @@ SHA-256: A7:8D:2E:CF:D7:74:AC:BC:39:F4:93:14:E0:57:8B:2F:2D:28:7D:1A:F4:57:8A:C2
 Valid until: mercoled├¼ 8 gennaio 2053
 
  */
-*/
+
+    //INIZIO PROVA POKE TRA UTENTI
+
+    EditText editText;
+    Button button;
+
+    String playerName = "";
+    FirebaseDatabase database;
+    DatabaseReference playerRef;
+
+
+    // FINE PROVA
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //PROVA POKE
+        editText = findViewById(R.id.NomeGiocatoreEditText);
+        button = findViewById(R.id.BottoneStart);
+
+        database = FirebaseDatabase.getInstance();
+
+        SharedPreferences preferences = getSharedPreferences("PREPS", 0);
+        playerName = preferences.getString("PlayerName", "");
+
+        if(!playerName.equals("")) {
+            playerRef = database.getReference("players/" + playerName);
+            addEventListener();
+            playerRef.setValue("");
+        }
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playerName = editText.getText().toString();
+                editText.setText("");
+                if(!playerName.equals("")){
+                    button.setText("REGISTRATI");
+                    button.setEnabled(false);
+                    playerRef = database.getReference("players/" + playerName);
+                    addEventListener();
+                    playerRef.setValue("");
+                }
+            }
+        });
+
+
+        }
+//PROVA NOTIFICA
+    private void addEventListener(){
+//legge dal db
+        playerRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //successo, continua fino al punto due
+                if(!playerName.equals("")){
+                    SharedPreferences preferences = getSharedPreferences("PREPS", 0);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("player name", playerName);
+                    editor.apply();
+
+                    startActivity(new Intent(getApplicationContext(), Stanze.class));
+                    finish();
+                }
+            }
+            //
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                //successo
+                button.setText("LOGIN");
+                button.setEnabled(true);
+                Toast.makeText(MainActivity.this, "ERROREEE", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-        import androidx.annotation.NonNull;
-        import androidx.appcompat.app.AppCompatActivity;
+    }
 
-        import android.app.ProgressDialog;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.ImageView;
-        import android.widget.LinearLayout;
-        import android.widget.TextView;
 
-        import com.google.firebase.database.DataSnapshot;
-        import com.google.firebase.database.DatabaseError;
-        import com.google.firebase.database.DatabaseReference;
-        import com.google.firebase.database.FirebaseDatabase;
-        import com.google.firebase.database.ValueEventListener;
-        import com.google.firebase.firestore.FirebaseFirestore;
-
-        import java.util.ArrayList;
-        import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private LinearLayout player1Layout, player2Layout;
